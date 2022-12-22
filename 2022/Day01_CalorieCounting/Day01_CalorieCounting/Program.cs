@@ -1,8 +1,23 @@
-﻿Console.WriteLine(MaxCalorie(CaloriesCarriedByElves("Input.txt")));
+﻿// part 1
+Console.WriteLine(MaxCalorie(CaloriesCarriedByElves("Input.txt")));
+
+// part 2
+Console.WriteLine(SumOfMaxThree(CaloriesCarriedByElves("Input.txt")));
 
 static int MaxCalorie(List<int> list)
 {
     return list.Max();
+}
+
+static int SumOfMaxThree(List<int> list)
+{
+    int sum = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        sum += list.Max();
+        list.Remove(list.Max());
+    }
+    return sum;
 }
 
 static List<int> CaloriesCarriedByElves(string inputfile)
